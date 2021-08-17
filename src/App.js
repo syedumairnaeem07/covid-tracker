@@ -1,12 +1,28 @@
-import "./App.css";
+import React, { Component } from "react";
 
-function App() {
-	return (
-		<div className="app">
-			<h1>Covid-19 Tracker !!!!!!</h1>
-			<h2>Checking out Workflow</h2>
-		</div>
-	);
+//*When you have index file you need to mention folder name
+import { Cards, Chart, CountryPicker } from "./components";
+import style from "./App.module.css";
+import { fetchData } from "./api";
+export default class App extends Component {
+	state = {
+		data: {},
+	};
+
+	async componentDidMount() {
+		const fetchedData = await fetchData();
+		this.setState({ data: fetchedData });
+	}
+
+	render() {
+		const { data } = this.state;
+
+		return (
+			<div className={style.container}>
+				<Cards data={data} />
+				<Chart />
+				<CountryPicker />
+			</div>
+		);
+	}
 }
-
-export default App;
