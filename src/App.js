@@ -1,12 +1,11 @@
-import "./App.css";
+import React, { Component } from "react";
 
-function App() {
-	return (
-		<div className="app">
-			<h1>Covid-19 Tracker !!!!!!</h1>
-			<h2>Checking out Workflow</h2>
-		</div>
-	);
+export default class App extends Component {
+	render() {
+		return (
+			<div>
+				<h1>App</h1>
+			</div>
+		);
+	}
 }
-
-export default App;
