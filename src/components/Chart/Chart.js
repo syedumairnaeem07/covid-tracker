@@ -15,20 +15,33 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
 
 		fetchDataFromAPI();
 	}, []);
+	console.log(Object.entries(dailyData));
+	let arrC = Object.entries(dailyData)[0];
+	let arrR = Object.entries(dailyData)[1];
+	let arrDT = Object.entries(dailyData)[2];
+	let arrD = Object.entries(dailyData)[3];
+	// console.log(arrD && arrD[1]);
 
-	const lineChart = dailyData.length ? (
+	const lineChart = Object.keys(dailyData).length ? (
 		<Line
 			data={{
-				labels: dailyData.map(({ date }) => date),
+				labels: arrD && arrD[1],
 				datasets: [
 					{
-						data: dailyData.map(({ confirmed }) => confirmed),
+						data: arrC && arrC[1],
 						label: "Infected",
 						borderColor: "#3333ff",
 						fill: true,
 					},
 					{
-						data: dailyData.map(({ deaths }) => deaths),
+						data: arrR && arrR[1],
+						label: "Recovered",
+						borderColor: "green",
+						backgroundColor: "rgba(0, 255, 0, 0.5)",
+						fill: true,
+					},
+					{
+						data: arrDT && arrDT[1],
 						label: "Deaths",
 						borderColor: "red",
 						backgroundColor: "rgba(255,0,0,0.5)",
@@ -46,7 +59,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
 				datasets: [
 					{
 						label: "People",
-						data: [confirmed.value, recovered.value, deaths.value],
+						data: [confirmed, recovered, deaths],
 						backgroundColor: [
 							"rgba(0, 0, 255, 0.5)",
 							"rgba(0, 255, 0, 0.5)",
