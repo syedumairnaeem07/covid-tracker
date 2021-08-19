@@ -31,8 +31,8 @@ export default class App extends Component {
 					src={coronaImage}
 					alt="COVID-19"
 				/>
-				<Cards data={data} />
 				<CountryPicker handleCountryChange={this.handleCountryChange} />
+				<Cards data={data} />
 				<Chart data={data} country={country} />
 			</div>
 		);
