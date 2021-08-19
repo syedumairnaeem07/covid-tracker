@@ -5,9 +5,6 @@ import CountUp from "react-countup";
 import cx from "classnames";
 
 const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
-	console.log("====================================");
-	console.log(confirmed, recovered, deaths, lastUpdate);
-	console.log("====================================");
 	return (
 		<div className={styles.container}>
 			<Grid container justifyContent="center" spacing={3}>
@@ -20,7 +17,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
 				>
 					<CardContent>
 						<Typography color="textSecondary" gutterBottom>
-							Infected
+							Cases
 						</Typography>
 						<Typography variant="h5">
 							<CountUp

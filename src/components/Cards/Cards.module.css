@@ -5,21 +5,50 @@
 .card {
 	margin: 0 2% !important;
 	background: #000;
+	cursor: pointer;
+	box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.24),
+		0 17px 50px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+.card:hover {
+	box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.24),
+		0 17px 50px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
 .infected {
-	border-bottom: 10px solid rgba(0, 0, 255, 0.5);
+	border-top: 5px solid rgba(255, 255, 0, 0.3);
+	background-color: #f5bc7c !important;
+	border-top-left-radius: 25px !important;
+	border-bottom-right-radius: 25px !important;
 }
 
 .recovered {
-	border-bottom: 10px solid rgba(0, 255, 0, 0.5);
+	border-top: 5px solid rgba(0, 255, 0, 0.3);
+	background-color: #98f393 !important;
+	border-top-left-radius: 25px !important;
+	border-bottom-right-radius: 25px !important;
 }
 
 .deaths {
-	border-bottom: 10px solid rgba(255, 0, 0, 0.5);
+	border-top: 5px solid rgba(255, 0, 0, 0.3);
+	background-color: #f19b96 !important;
+	border-top-left-radius: 25px !important;
+	border-bottom-right-radius: 25px !important;
 }
 
-@media (max-width: 770px) {
+.infected:hover {
+	border-top: 5px solid rgba(255, 255, 0, 0.5);
+}
+/*  */
+.recovered:hover {
+	border-top: 5px solid rgba(0, 255, 0, 0.5);
+}
+
+.deaths:hover {
+	border-top: 5px solid rgba(255, 0, 0, 0.5);
+}
+
+@media (max-width: 959px) {
 	.card {
 		margin: 2% 0 !important;
 	}
