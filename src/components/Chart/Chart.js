@@ -15,23 +15,35 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
 
 		fetchDataFromAPI();
 	}, []);
+	let arrC = Object.entries(dailyData)[0];
+	let arrR = Object.entries(dailyData)[1];
+	let arrDT = Object.entries(dailyData)[2];
+	let arrD = Object.entries(dailyData)[3];
 
-	const lineChart = dailyData.length ? (
+	const lineChart = Object.keys(dailyData).length ? (
 		<Line
 			data={{
-				labels: dailyData.map(({ date }) => date),
+				labels: arrD && arrD[1],
 				datasets: [
 					{
-						data: dailyData.map(({ confirmed }) => confirmed),
-						label: "Infected",
-						borderColor: "#3333ff",
+						data: arrC && arrC[1],
+						label: "Cases",
+						borderColor: "rgba(241,174,97)",
+						backgroundColor: "rgba(241,174,97)",
 						fill: true,
 					},
 					{
-						data: dailyData.map(({ deaths }) => deaths),
+						data: arrR && arrR[1],
+						label: "Recoveries",
+						borderColor: "rgba(127,235,122)",
+						backgroundColor: "rgba(127,235,122)",
+						fill: true,
+					},
+					{
+						data: arrDT && arrDT[1],
 						label: "Deaths",
-						borderColor: "red",
-						backgroundColor: "rgba(255,0,0,0.5)",
+						borderColor: "rgba(241,116,110)",
+						backgroundColor: "rgba(241,116,110)",
 						fill: true,
 					},
 				],
@@ -42,16 +54,12 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
 	const barChart = confirmed ? (
 		<Bar
 			data={{
-				labels: ["Infected", "Recovered", "Deaths"],
+				labels: ["Cases", "Recoveries", "Deaths"],
 				datasets: [
 					{
 						label: "People",
-						data: [confirmed.value, recovered.value, deaths.value],
-						backgroundColor: [
-							"rgba(0, 0, 255, 0.5)",
-							"rgba(0, 255, 0, 0.5)",
-							"rgba(255, 0, 0, 0.5)",
-						],
+						data: [confirmed, recovered, deaths],
+						backgroundColor: ["#f1ae61", "#7feb7a", "#f1746e"],
 					},
 				],
 			}}
