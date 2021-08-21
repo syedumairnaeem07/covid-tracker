@@ -15,7 +15,7 @@
 	background-color: none !important;
 	width: auto !important;
 	overflow: hidden !important;
-	font-size: 1rem !important;
+	font-size: 1.5rem !important;
 	box-sizing: border-box !important;
 	min-height: 48px !important;
 	font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
@@ -40,4 +40,16 @@
 	background-color: #f5f4fa !important;
 	color: black !important;
 	scroll-behavior: smooth !important;
+}
+
+@media (max-width: 470px) {
+	.MuiInputBase-input {
+		font-size: 1rem !important;
+	}
+}
+
+@media (max-width: 300px) {
+	.MuiInputBase-input {
+		font-size: 0.8rem !important;
+	}
 }
