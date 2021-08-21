@@ -22,7 +22,7 @@ export const fetchDailyData = async () => {
 		const {
 			data: { cases, recovered, deaths },
 		} = await axios.get(`${url}/historical/all?lastdays=120`);
-
+		
 		return {
 			confirmed: Object.values(cases),
 			recovered: Object.values(recovered),

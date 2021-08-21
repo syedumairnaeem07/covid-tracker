@@ -1,0 +1,43 @@
+.MuiInputBase-input {
+	color: white !important;
+	border-bottom: 1px solid white !important;
+}
+
+.MuiInputBase-input:hover {
+	border-bottom: 1px solid white !important;
+}
+
+.MuiInputBase-input::before {
+	border-bottom: 1px solid white !important;
+}
+
+.MuiInputBase-input {
+	background-color: none !important;
+	width: auto !important;
+	overflow: hidden !important;
+	font-size: 1rem !important;
+	box-sizing: border-box !important;
+	min-height: 48px !important;
+	font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+	font-weight: 400 !important;
+	line-height: 1.5 !important;
+	padding-top: 6px !important;
+	white-space: nowrap !important;
+	letter-spacing: 0.00938em !important;
+	padding-bottom: 6px !important;
+}
+
+.MuiInputBase-root {
+	width: fit-content !important;
+}
+
+.MuiNativeSelect-icon {
+	color: white !important;
+}
+
+.MuiNativeSelect-select:not([multiple]) option,
+.MuiNativeSelect-select:not([multiple]) optgroup {
+	background-color: #f5f4fa !important;
+	color: black !important;
+	scroll-behavior: smooth !important;
+}
