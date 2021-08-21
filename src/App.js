@@ -25,15 +25,25 @@ export default class App extends Component {
 		const { data, country } = this.state;
 
 		return (
-			<div className={styles.container}>
-				<img
-					className={styles.image}
-					src={coronaImage}
-					alt="COVID-19"
-				/>
-				<CountryPicker handleCountryChange={this.handleCountryChange} />
-				<Cards data={data} />
-				<Chart data={data} country={country} />
+			<div>
+				<div className={styles.header}>
+					<img
+						className={styles.image}
+						src={coronaImage}
+						alt="COVID-19"
+					/>
+					<div className={styles.headerText}>
+						<h1>COVID-19 TRACKER</h1>
+						<h3>Stay Informed, Stay Safe</h3>
+					</div>
+				</div>
+				<div className={styles.container}>
+					<CountryPicker
+						handleCountryChange={this.handleCountryChange}
+					/>
+					<Cards data={data} />
+					<Chart data={data} country={country} />
+				</div>
 			</div>
 		);
 	}
