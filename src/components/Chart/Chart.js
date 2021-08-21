@@ -6,7 +6,7 @@ import { Line, Bar } from "react-chartjs-2";
 import styles from "./Chart.module.css";
 
 const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
-	const [dailyData, setDailyData] = useState([]);
+	const [dailyData, setDailyData] = useState({});
 
 	useEffect(() => {
 		const fetchDataFromAPI = async () => {
@@ -15,35 +15,43 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
 
 		fetchDataFromAPI();
 	}, []);
+
 	let arrC = Object.entries(dailyData)[0];
 	let arrR = Object.entries(dailyData)[1];
 	let arrDT = Object.entries(dailyData)[2];
 	let arrD = Object.entries(dailyData)[3];
 
-	const lineChart = Object.keys(dailyData).length ? (
+	const lineChart = Object.entries(dailyData).length ? (
 		<Line
 			data={{
-				labels: arrD && arrD[1],
+				labels:
+					arrD &&
+					arrD[1].map((date) => {
+						let modifiedDate = new Date(date).toDateString();
+						return `${modifiedDate.split(" ")[1]} ${
+							modifiedDate.split(" ")[2]
+						}`;
+					}),
 				datasets: [
 					{
 						data: arrC && arrC[1],
 						label: "Cases",
 						borderColor: "rgba(241,174,97)",
-						backgroundColor: "rgba(241,174,97)",
+						backgroundColor: "rgba(241,174,97,0.2)",
 						fill: true,
 					},
 					{
 						data: arrR && arrR[1],
 						label: "Recoveries",
 						borderColor: "rgba(127,235,122)",
-						backgroundColor: "rgba(127,235,122)",
+						backgroundColor: "rgba(127,235,122,0.5)",
 						fill: true,
 					},
 					{
 						data: arrDT && arrDT[1],
 						label: "Deaths",
 						borderColor: "rgba(241,116,110)",
-						backgroundColor: "rgba(241,116,110)",
+						backgroundColor: "rgba(241,116,110,0.5)",
 						fill: true,
 					},
 				],

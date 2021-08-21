@@ -20,14 +20,14 @@ export const fetchData = async (country) => {
 export const fetchDailyData = async () => {
 	try {
 		const {
-			data: { timeline },
-		} = await axios.get(`${url}/historical/pakistan`);
-
+			data: { cases, recovered, deaths },
+		} = await axios.get(`${url}/historical/all?lastdays=120`);
+		
 		return {
-			confirmed: Object.values(timeline.cases),
-			recovered: Object.values(timeline.recovered),
-			deaths: Object.values(timeline.deaths),
-			date: Object.keys(timeline.cases),
+			confirmed: Object.values(cases),
+			recovered: Object.values(recovered),
+			deaths: Object.values(deaths),
+			date: Object.keys(cases),
 		};
 	} catch (error) {
 		return error;

@@ -4,7 +4,7 @@
 	width: 85%;
 }
 
-@media (max-width: 770px) {
+@media (max-width: 959px) {
 	.container {
 		width: 100%;
 	}
